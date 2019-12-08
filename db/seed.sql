@@ -19,6 +19,10 @@ CREATE TABLE users (
   hash TEXT NOT NULL
 )
 
+-- add has_dog
+ALTER TABLE users
+ADD COLUMN has_dog BOOL;
+
 -- Create dogalogue table
 CREATE TABLE dogalogue (
   dog_id SERIAL PRIMARY KEY,

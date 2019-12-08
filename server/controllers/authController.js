@@ -7,15 +7,8 @@ async function getUser(req, res) {
 }
 
 async function register(req, res) {
-  const {
-    first_name,
-    last_name,
-    age,
-    email,
-    username,
-    password,
-    has_dog
-  } = req.body;
+  const { first_name, last_name, age, email, username, password } = req.body;
+  const db = req.app.get("db");
 
   const foundUser = await db.auth.checkForUsername([username]);
 
@@ -30,8 +23,7 @@ async function register(req, res) {
       age,
       email,
       username,
-      hash,
-      has_dog
+      hash
     ]);
 
     req.session.user = {
@@ -66,7 +58,7 @@ async function login(req, res) {
         first_name: foundUser[0].first_name,
         last_name: foundUser[0].last_name,
         age: foundUser[0].age,
-        email: newUser[0].email
+        email: foundUser[0].email
       };
       res.status(200).json(req.session.user);
     }
