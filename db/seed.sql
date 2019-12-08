@@ -46,6 +46,7 @@ CREATE TABLE orders (
   dog_id INT NOT NULL REFERENCES dog_id(dogalogue)
 )
 
+-- Create dog_stats table
 CREATE TABLE dog_stats (
   dog_id INT NOT NULL REFERENCES dog_id(dogalogue),
   user_id INT NOT NULL REFERENCES user_id(users),

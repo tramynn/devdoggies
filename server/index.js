@@ -4,6 +4,7 @@ const session = require("express-session");
 const massive = require("massive");
 const app = express();
 // Controllers
+const ac = require("./controllers/authController");
 // Dotenv
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 
@@ -27,11 +28,14 @@ massive(CONNECTION_STRING).then(db => {
   console.log("db connected :D");
 });
 
+// De-structured controllers
+const { getUser, register, login, logout } = ac;
+
 // Auth Endpoints
-app.get("/auth/user");
-app.post("/auth/register");
-app.post("/auth/login");
-app.post("/auth/logout");
+app.get("/auth/user", getUser);
+app.post("/auth/register", register);
+app.post("/auth/login", login);
+app.post("/auth/logout", logout);
 
 app.listen(SERVER_PORT, () => {
   console.log(`SERVER LISTENING ON PORT: ${SERVER_PORT}`);
