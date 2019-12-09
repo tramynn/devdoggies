@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getSession, logoutUser } from "../../redux/reducers/authReducer";
-import Register from "../Register/Register";
+import Start from "../Start/Start";
 import UserProfile from "../UserProfile/UserProfile";
 
 class NavBar extends Component {
@@ -30,7 +30,7 @@ class NavBar extends Component {
             <li>Dogalogue</li>
             <li>Guide</li>
             <li>
-              <Register />
+              <Start />
             </li>
           </ul>
         </nav>
@@ -40,7 +40,7 @@ class NavBar extends Component {
             <li>Dogalogue</li>
             <li>Guide</li>
             <li>
-              <Register />
+              <Start />
             </li>
           </ul>
         </nav>
