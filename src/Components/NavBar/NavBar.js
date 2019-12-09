@@ -7,7 +7,9 @@ import UserProfile from "../UserProfile/UserProfile";
 class NavBar extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      start: false
+    };
   }
 
   componentDidMount() {
@@ -16,6 +18,14 @@ class NavBar extends Component {
 
   handleLogout = () => {
     this.props.logoutUser();
+  };
+
+  openStart = () => {
+    this.setState({ start: true });
+  };
+
+  closeStart = () => {
+    this.setState({ start: false });
   };
 
   render() {
@@ -30,12 +40,13 @@ class NavBar extends Component {
             <li>Dogalogue</li>
             <li>Guide</li>
             <li>
-              <Start />
+              <button onClick={this.openStart}>Start</button>
+              <Start start={this.state.start} closeStart={this.closeStart} />
             </li>
           </ul>
         </nav>
         {/* Guest Mobile */}
-        <nav>
+        {/* <nav>
           <ul>
             <li>Dogalogue</li>
             <li>Guide</li>
@@ -43,9 +54,9 @@ class NavBar extends Component {
               <Start />
             </li>
           </ul>
-        </nav>
+        </nav> */}
         {/* User Web */}
-        <nav>
+        {/* <nav>
           <ul>
             <li>Dogalogue</li>
             <li>Guide</li>
@@ -56,9 +67,9 @@ class NavBar extends Component {
             </li>
             <li>Logout</li>
           </ul>
-        </nav>
+        </nav> */}
         {/* User Mobile */}
-        <nav>
+        {/* <nav>
           <ul>
             <li>Dogalogue</li>
             <li>Guide</li>
@@ -69,7 +80,7 @@ class NavBar extends Component {
             </li>
             <li>Logout</li>
           </ul>
-        </nav>
+        </nav> */}
       </div>
     );
   }

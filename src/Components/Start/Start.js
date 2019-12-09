@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import Dialog from "@material-ui/core/Dialog";
+import DialogContent from "@material-ui/core/DialogContent";
+import Login from "../Login/Login";
+import Register from "../Register/Register";
 
 class Start extends Component {
   constructor() {
@@ -9,7 +13,19 @@ class Start extends Component {
   render() {
     return (
       <div>
-        <h1>Start</h1>
+        <Dialog onClose={this.props.closeStart} open={this.props.start}>
+          <DialogContent>
+            <ul>
+              <li>New User?</li>
+              <li>Register Here</li>
+              <li>
+                <hr />
+              </li>
+              <li>Welcome Back</li>
+              <li>Login</li>
+            </ul>
+          </DialogContent>
+        </Dialog>
       </div>
     );
   }
