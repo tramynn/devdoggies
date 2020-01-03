@@ -5,6 +5,9 @@ const massive = require("massive");
 const app = express();
 // Controllers
 const ac = require("./controllers/authController");
+const uc = require("./controllers/userController");
+const dc = require("./controllers/dogController");
+const dogalogue = require("./controllers/dogalogueController");
 // Dotenv
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 
@@ -36,6 +39,21 @@ app.get("/auth/user", getUser);
 app.post("/auth/register", register);
 app.post("/auth/login", login);
 app.post("/auth/logout", logout);
+
+// User Endpoints
+app.get("/api/user/:username");
+app.put("/api/user/:username");
+app.delete("/api/user/:username");
+
+// Dog Endpoints
+app.get("/api/dog/:dog_id");
+app.put("/api/dog/:dog_id");
+
+// Dogalogue Endpoints
+app.get("/api/dogalogue");
+
+// Cart Endpoints
+app.get("/api/cart");
 
 app.listen(SERVER_PORT, () => {
   console.log(`SERVER LISTENING ON PORT: ${SERVER_PORT}`);

@@ -13,7 +13,7 @@ async function register(req, res) {
   const foundUser = await db.auth.checkForUsername([username]);
 
   if (foundUser[0]) {
-    res.status(200).json("Username is Taken.");
+    res.status(400).json("Username is Taken.");
   } else {
     const salt = await bcrypt.genSaltSync(10);
     const hash = await bcrypt.hashSync(password, salt);
@@ -50,7 +50,7 @@ async function login(req, res) {
   } else {
     const isAuthenticated = bcrypt.compareSync(password, foundUser[0].hash);
     if (!isAuthenticated) {
-      res.status(403).json("Username or Password is incorrect");
+      res.status(401).json("Username or Password is incorrect");
     } else {
       req.session.user = {
         user_id: foundUser[0].user_id,

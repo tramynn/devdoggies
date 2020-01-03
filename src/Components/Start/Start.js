@@ -17,12 +17,16 @@ class Start extends Component {
           <DialogContent>
             <ul>
               <li>New User?</li>
-              <li>Register Here</li>
+              <li>
+                <button>
+                  Register Here
+                </button>
+                <Register />
+              </li>
               <li>
                 <hr />
               </li>
-              <li>Welcome Back</li>
-              <li>Login</li>
+              <li><Login /></li>
             </ul>
           </DialogContent>
         </Dialog>

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getSession, logoutUser } from "../../redux/reducers/authReducer";
 import Start from "../Start/Start";
-import UserProfile from "../UserProfile/UserProfile";
+// import UserProfile from "../UserProfile/UserProfile";
 import "./NavBar.scss";
 
 class NavBar extends Component {
