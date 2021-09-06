@@ -1,9 +1,10 @@
 # DevDoggies
 Final Project for ConsenSys Blockchain Developer Bootcamp
 
-## Overview
-This dApp allows for users to view, buy, and sell DevDoggies.
+## About
+A decentralized marketplace where users can view, buy, and sell DevDoggies.
 
+# Overview
 ## Definitions
 
 ## Specs
